@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Message /> it should show "There is nothing to show here!" message 1`] = `
+<div
+  class="MuiBox-root css-0"
+>
+  <p
+    class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+  >
+    There is nothing to show here!
+  </p>
+</div>
+`;

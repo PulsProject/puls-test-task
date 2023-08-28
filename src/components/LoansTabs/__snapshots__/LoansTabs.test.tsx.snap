@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoansTabs/> it should show 5 tabs and a LoansList component 1`] = `
+<div
+  class="MuiBox-root css-8atqhb"
+>
+  <div
+    class="MuiBox-root css-1gsv261"
+  >
+    <div
+      class="MuiTabs-root css-1ujnqem-MuiTabs-root"
+    >
+      <div
+        class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
+        style="overflow: hidden; margin-bottom: 0px;"
+      >
+        <div
+          aria-label="loans tabs"
+          class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+          role="tablist"
+        >
+          <button
+            aria-controls="tabpanel-0"
+            aria-selected="true"
+            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected css-1h9z7r5-MuiButtonBase-root-MuiTab-root"
+            id="tab-0"
+            role="tab"
+            tabindex="0"
+            type="button"
+          >
+            Approved Loans 1
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            aria-controls="tabpanel-1"
+            aria-selected="false"
+            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1h9z7r5-MuiButtonBase-root-MuiTab-root"
+            id="tab-1"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            Requests 2
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            aria-controls="tabpanel-2"
+            aria-selected="false"
+            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1h9z7r5-MuiButtonBase-root-MuiTab-root"
+            id="tab-2"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            Active Loans 1
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            aria-controls="tabpanel-3"
+            aria-selected="false"
+            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1h9z7r5-MuiButtonBase-root-MuiTab-root"
+            id="tab-3"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            Closed Loans 1
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            aria-controls="tabpanel-4"
+            aria-selected="false"
+            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1h9z7r5-MuiButtonBase-root-MuiTab-root"
+            id="tab-4"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            Rejected Loans 1
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <span
+          class="MuiTabs-indicator css-1aquho2-MuiTabs-indicator"
+          style="left: 0px; width: 0px;"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    aria-labelledby="tab-0"
+    id="tabpanel-0"
+    role="tabpanel"
+  >
+    <div
+      class="MuiBox-root css-19kzrtu"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+      >
+        LoansList
+      </p>
+    </div>
+  </div>
+  <div
+    aria-labelledby="tab-1"
+    hidden=""
+    id="tabpanel-1"
+    role="tabpanel"
+  />
+  <div
+    aria-labelledby="tab-2"
+    hidden=""
+    id="tabpanel-2"
+    role="tabpanel"
+  />
+  <div
+    aria-labelledby="tab-3"
+    hidden=""
+    id="tabpanel-3"
+    role="tabpanel"
+  />
+  <div
+    aria-labelledby="tab-4"
+    hidden=""
+    id="tabpanel-4"
+    role="tabpanel"
+  />
+</div>
+`;
