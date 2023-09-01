@@ -1,23 +1,64 @@
-import { Box, Card, Grid, Hidden, Typography, useMediaQuery } from '@mui/material';
+import { Box, Card, Grid, Hidden, Tabs, Tab, Typography, useMediaQuery } from '@mui/material';
 import moment from 'moment';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // eslint-disable-next-line import/extensions
 import data from '../../data/loans.json';
 import useStyles from './LoansListStyles';
 import theme from '../../theme/theme';
+import { groupBy, lowerCase, map, isEmpty, keysIn, chain } from 'lodash';
+import { Statuses } from './constants';
 
 
 const LoansList: React.FC = () => {
   const { loanRequests }: any = data;
   const mobile = useMediaQuery(theme.breakpoints.down('xs'));
   const styles = useStyles();
+  const [ tab, setTab ] = useState<string>();
+
+  const loansPerStatuses = groupBy(loanRequests, 'status');
+  /**
+   * saving the order from "waiting approval" to "closed"
+   */
+  const prioritized = chain(loansPerStatuses).toPairs().sortBy((item)=>(Object.values(Statuses) as any).indexOf(item?.[0])).fromPairs().value();
+  /**
+   * combining loans with the similar statuses into one
+   */
+  let statuses: any = {};
+  for (let name in prioritized) {
+    if (lowerCase(name) === lowerCase(Statuses.disbursed) || lowerCase(name) === lowerCase(Statuses.pending)) {
+      statuses.requests = statuses?.requests ? [...statuses.requests, ...prioritized[name]] : prioritized[name];
+    } else {
+      statuses[name] = prioritized[name];
+    }
+  }
+
+  useEffect(()=>{
+    if (!isEmpty(statuses)) {
+      setTab(keysIn(statuses)?.[0]);
+    }
+  }, []);
 
   // eslint-disable-next-line no-console
   console.log(loanRequests);
 
+  if (isEmpty(statuses)) {
+    return (
+        <div>
+          There is nothing to show here
+        </div>
+    );
+  }
+
+
   return (
     <>
       <Typography variant="h2" sx={{ marginBottom: 8 }}>Financing</Typography>
+      <Tabs sx={{ marginBottom: 20 }} value={tab || Object.keys(statuses)?.[0]}
+            onChange={(e, value) => setTab(value)} aria-label="basic tabs example">
+        {map(statuses, (loans: any, key: string) => {
+          return <Tab key={key} label={`${key} ${loans?.length}`} value={key}/>;
+        })}
+      </Tabs>
       <Hidden smDown>
         <Card className={styles.loansListHeader} elevation={0}>
           <Grid container>
@@ -29,7 +70,7 @@ const LoansList: React.FC = () => {
           </Grid>
         </Card>
       </Hidden>
-      {loanRequests.map((loan: any) => (
+      {tab && statuses?.[tab] && statuses[tab]?.map((loan: any) => (
         <Card className={styles.loanCard} key={loan.id}>
           <Grid container alignItems={mobile ? 'flex-start' : 'center'}>
             <Grid item xs={7} sm={2}>
@@ -41,7 +82,7 @@ const LoansList: React.FC = () => {
                 {loan.externalId}
               </span>
               <Hidden smUp>
-                <Box component="span" ml={2} mb={-0.5} className={`${styles.status} ${loan.status.replaceAll(/\s+/g, '-')}`}>
+                <Box component="span" ml={2} mb={-0.5} className={`${styles.status} ${loan?.status?.replace(/\s+/g, '-')}`}>
                   {loan.status}
                 </Box>
               </Hidden>
@@ -91,7 +132,7 @@ const LoansList: React.FC = () => {
             <Hidden smDown>
               <Grid item xs={12} sm={3}>
                 <Box textAlign="right">
-                  <span className={`${styles.status} ${loan.status.replaceAll(/\s+/g, '-')}`}>
+                  <span className={`${styles.status} ${loan.status.replace(/\s+/g, '-')}`}>
                     {loan.status}
                   </span>
                 </Box>
