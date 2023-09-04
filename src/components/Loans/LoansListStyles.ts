@@ -114,4 +114,23 @@ export default makeStyles((theme: Theme) => ({
       color: theme.palette.info.dark,
     },
   },
+  tabsContainer: {
+    marginBottom: theme.spacing(2),
+    maxWidth: 800,
+  },
+  tab: {
+    textTransform: 'unset',
+    display: 'flex',
+    flexDirection: 'row-reverse',
+    fontSize: 14,
+    alignItems: 'center',
+    fontWeight: 700,
+    minHeight: 'unset',
+  },
+  emptyBlock: {
+    ...theme.typography.h5,
+    textAlign: 'center',
+    maxWidth: 800,
+    marginTop: theme.spacing(20),
+  },
 }));
