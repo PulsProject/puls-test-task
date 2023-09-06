@@ -1,9 +1,17 @@
+export type Status =
+  | 'waiting approval'
+  | 'pending settlement'
+  | 'to be disbursed'
+  | 'active'
+  | 'rejected'
+  | 'closed';
+
 export interface LoanRequest {
   id: number;
   externalId: string;
   amount: number;
   duration: number;
-  status: string;
+  status: Status;
   monthlyPayment: number;
   interestRate: number;
   externalProductId: number;

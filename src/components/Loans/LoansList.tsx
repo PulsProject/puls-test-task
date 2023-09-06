@@ -14,16 +14,9 @@ import {
   Status,
 } from './LoansListStyles';
 
-// eslint-disable-next-line import/extensions
-import data from '../../data/loans.json';
 import { type LoanRequest } from './LoanRequest';
 
-const LoansList: React.FC = () => {
-  const { loanRequests } = data as unknown as { loanRequests: LoanRequest[] };
-
-  // eslint-disable-next-line no-console
-  console.log(loanRequests);
-
+export const LoansList: React.FC<{ loans: LoanRequest[] }> = ({ loans }) => {
   return (
     <>
       <Box sx={{ typography: 'h2', marginBottom: 8 }}>Financing</Box>
@@ -48,92 +41,97 @@ const LoansList: React.FC = () => {
           </Grid>
         </LoansListHeader>
       </Box>
-      {loanRequests.map((loan: any) => (
-        <LoanCard key={loan.id}>
-          <Grid
-            container
-            sx={{ alignItems: { xs: 'flex-start', sm: 'center' } }}
-          >
-            <Grid item xs={7} sm={2}>
-              <Name component={'span'}>
-                <Box sx={{ display: { xs: 'none', sm: 'block' } }}>FL</Box>
-                {loan.externalId}
-              </Name>
-              <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
-                <Status
-                  component="span"
-                  sx={{ ml: 2, mb: -0.5 }}
-                  // TODO: rewrite with statuses
-                  className={`${loan.status.replaceAll(/\s+/g, '-')}`}
-                >
-                  {loan.status}
-                </Status>
-              </Box>
-              <NameSubtitle sx={{ typography: 'subtitle2' }}>
-                {loan.account?.company.name}
-              </NameSubtitle>
-              <Box>
-                <Date sx={{ pt: 1, color: 'text.secondary' }}>
-                  {moment(loan.createdAt).format('DD MMM YYYY')}
-                </Date>
-              </Box>
-            </Grid>
+      {loans &&
+        loans.length > 0 &&
+        loans.map((loan) => (
+          <LoanCard key={loan.id}>
             <Grid
-              item
-              xs={12}
-              sm={2}
-              sx={{ display: { xs: 'none', sm: 'block' } }}
+              container
+              sx={{ alignItems: { xs: 'flex-start', sm: 'center' } }}
             >
-              <Date>{moment(loan.createdAt).format('DD MMM YYYY')}</Date>
-            </Grid>
-            <Grid item xs sm={2} sx={{ display: { xs: 'none', sm: 'block' } }}>
-              <Date>{`${loan.duration} months`}</Date>
-            </Grid>
-            <Grid item xs={5} sm={3}>
-              <AmountWrapper>
-                <Amount sx={{ typography: 'caption', textAlign: 'right' }}>
-                  {`${loan.amount.toLocaleString('de-DE', {
-                    minimumFractionDigits: 2,
-                  })}`}
-                  &nbsp;€
-                </Amount>
+              <Grid item xs={7} sm={2}>
+                <Name component={'span'}>
+                  <Box sx={{ display: { xs: 'none', sm: 'block' } }}>FL</Box>
+                  {loan.externalId}
+                </Name>
+                <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
+                  <Status
+                    component="span"
+                    sx={{ ml: 2, mb: -0.5 }}
+                    // TODO: rewrite with statuses
+                    className={`${loan.status.replaceAll(/\s+/g, '-')}`}
+                  >
+                    {loan.status}
+                  </Status>
+                </Box>
+                <NameSubtitle sx={{ typography: 'subtitle2' }}>
+                  {loan.account?.company.name}
+                </NameSubtitle>
                 <Box>
-                  <Date sx={{ mt: 2, mb: 1, color: 'text.secondary' }}>
-                    for {`${loan.duration} months`}
+                  <Date sx={{ pt: 1, color: 'text.secondary' }}>
+                    {moment(loan.createdAt).format('DD MMM YYYY')}
                   </Date>
                 </Box>
-                <Box sx={{ typography: 'subtitle2', textAlign: 'right' }}>
-                  {`${loan.monthlyPayment.toLocaleString('de-DE', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  })}€ / month`}
-                </Box>
-              </AmountWrapper>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={3}
-              sx={{ display: { xs: 'none', sm: 'block' } }}
-            >
-              <Box
-                sx={{
-                  textAlign: 'right',
-                }}
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={2}
+                sx={{ display: { xs: 'none', sm: 'block' } }}
               >
-                <Status
-                  className={`${loan.status.replaceAll(/\s+/g, '-')}`}
-                  component={'span'}
+                <Date>{moment(loan.createdAt).format('DD MMM YYYY')}</Date>
+              </Grid>
+              <Grid
+                item
+                xs
+                sm={2}
+                sx={{ display: { xs: 'none', sm: 'block' } }}
+              >
+                <Date>{`${loan.duration} months`}</Date>
+              </Grid>
+              <Grid item xs={5} sm={3}>
+                <AmountWrapper>
+                  <Amount sx={{ typography: 'caption', textAlign: 'right' }}>
+                    {`${loan.amount.toLocaleString('de-DE', {
+                      minimumFractionDigits: 2,
+                    })}`}
+                    &nbsp;€
+                  </Amount>
+                  <Box>
+                    <Date sx={{ mt: 2, mb: 1, color: 'text.secondary' }}>
+                      for {`${loan.duration} months`}
+                    </Date>
+                  </Box>
+                  <Box sx={{ typography: 'subtitle2', textAlign: 'right' }}>
+                    {`${loan.monthlyPayment.toLocaleString('de-DE', {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })}€ / month`}
+                  </Box>
+                </AmountWrapper>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={3}
+                sx={{ display: { xs: 'none', sm: 'block' } }}
+              >
+                <Box
+                  sx={{
+                    textAlign: 'right',
+                  }}
                 >
-                  {loan.status}
-                </Status>
-              </Box>
+                  <Status
+                    className={`${loan.status.replaceAll(/\s+/g, '-')}`}
+                    component={'span'}
+                  >
+                    {loan.status}
+                  </Status>
+                </Box>
+              </Grid>
             </Grid>
-          </Grid>
-        </LoanCard>
-      ))}
+          </LoanCard>
+        ))}
     </>
   );
 };
-
-export default LoansList;
