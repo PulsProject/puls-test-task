@@ -1,0 +1,423 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders <LoansTabs/> with default data 1`] = `
+<div
+  className="MuiBox-root css-0"
+>
+  <div
+    className="MuiBox-root css-0"
+  >
+    <div
+      className="MuiTabs-root css-u6xdzt-MuiTabs-root"
+    >
+      <div
+        className="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+        style={
+          Object {
+            "height": 99,
+            "overflow": "scroll",
+            "position": "absolute",
+            "top": -9999,
+            "width": 99,
+          }
+        }
+      />
+      <div
+        className="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+        style={
+          Object {
+            "marginBottom": -0,
+            "overflow": "hidden",
+          }
+        }
+      >
+        <div
+          aria-label="loans tabs"
+          aria-orientation={null}
+          className="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+          onKeyDown={[Function]}
+          role="tablist"
+        >
+          <button
+            aria-controls="loans-tabpanel-0"
+            aria-selected={true}
+            className="MuiButtonBase-root MuiTab-root MuiTab-textColorSecondary Mui-selected css-z6rlig-MuiButtonBase-root-MuiTab-root"
+            disabled={false}
+            id="loans-tab-0"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="MuiBox-root css-10iahqc"
+            >
+              approved loans
+               
+              <span
+                className="MuiBox-root css-p9qzma"
+              >
+                1
+              </span>
+            </div>
+            <span
+              className="MuiTabs-indicator css-11yukd5-MuiTabs-indicator"
+              style={Object {}}
+            />
+          </button>
+          <button
+            aria-controls="loans-tabpanel-1"
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root MuiTab-textColorSecondary css-z6rlig-MuiButtonBase-root-MuiTab-root"
+            disabled={false}
+            id="loans-tab-1"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              className="MuiBox-root css-10iahqc"
+            >
+              requests
+               
+              <span
+                className="MuiBox-root css-p9qzma"
+              >
+                2
+              </span>
+            </div>
+          </button>
+          <button
+            aria-controls="loans-tabpanel-2"
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root MuiTab-textColorSecondary css-z6rlig-MuiButtonBase-root-MuiTab-root"
+            disabled={false}
+            id="loans-tab-2"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              className="MuiBox-root css-10iahqc"
+            >
+              active loans
+               
+              <span
+                className="MuiBox-root css-p9qzma"
+              >
+                1
+              </span>
+            </div>
+          </button>
+          <button
+            aria-controls="loans-tabpanel-3"
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root MuiTab-textColorSecondary css-z6rlig-MuiButtonBase-root-MuiTab-root"
+            disabled={false}
+            id="loans-tab-3"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              className="MuiBox-root css-10iahqc"
+            >
+              closed loans
+               
+              <span
+                className="MuiBox-root css-p9qzma"
+              >
+                1
+              </span>
+            </div>
+          </button>
+          <button
+            aria-controls="loans-tabpanel-4"
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root MuiTab-textColorSecondary css-z6rlig-MuiButtonBase-root-MuiTab-root"
+            disabled={false}
+            id="loans-tab-4"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              className="MuiBox-root css-10iahqc"
+            >
+              rejected loans
+               
+              <span
+                className="MuiBox-root css-p9qzma"
+              >
+                1
+              </span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-labelledby="loans-tab-0"
+    hidden={false}
+    id="loans-tabpanel-0"
+    role="tabpanel"
+  >
+    <div
+      className="MuiBox-root css-19kzrtu"
+    >
+      <div
+        className="MuiBox-root css-rh1axf"
+      >
+        Financing
+      </div>
+      <div
+        className="MuiBox-root css-130f8nx"
+      >
+        <div
+          className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-10g80yh-MuiPaper-root-MuiCard-root"
+        >
+          <div
+            className="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+          >
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+            >
+              Loan ID
+            </div>
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+            >
+              <div
+                className="MuiBox-root css-s2uf1z"
+              >
+                Requested
+              </div>
+            </div>
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+            >
+              <div
+                className="MuiBox-root css-s2uf1z"
+              >
+                Duration
+              </div>
+            </div>
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root"
+            >
+              <div
+                className="MuiBox-root css-s2uf1z"
+              >
+                Amount
+              </div>
+            </div>
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root"
+            >
+              <div
+                className="MuiBox-root css-s2uf1z"
+              >
+                Status
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1dja1o3-MuiPaper-root-MuiCard-root"
+      >
+        <div
+          className="MuiGrid-root MuiGrid-container css-1k4peng-MuiGrid-root"
+        >
+          <div
+            className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 MuiGrid-grid-sm-2 css-zv6quw-MuiGrid-root"
+          >
+            <span
+              className="MuiBox-root css-1ih6hif"
+            >
+              <div
+                className="MuiBox-root css-130f8nx"
+              >
+                FL
+              </div>
+              G81FV
+            </span>
+            <div
+              className="MuiBox-root css-10q9jzs"
+            >
+              <span
+                className="waiting-approval MuiBox-root css-rltqv7"
+              >
+                waiting approval
+              </span>
+            </div>
+            <div
+              className="MuiBox-root css-1b9almr"
+            >
+              Nancy Logan
+            </div>
+            <div
+              className="MuiBox-root css-0"
+            >
+              <div
+                className="MuiBox-root css-wi2syy"
+              >
+                14 Sep 2021
+              </div>
+            </div>
+          </div>
+          <div
+            className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-2 css-1rg6zok-MuiGrid-root"
+          >
+            <div
+              className="MuiBox-root css-1brsu4m"
+            >
+              14 Sep 2021
+            </div>
+          </div>
+          <div
+            className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true MuiGrid-grid-sm-2 css-142u6d7-MuiGrid-root"
+          >
+            <div
+              className="MuiBox-root css-1brsu4m"
+            >
+              1 months
+            </div>
+          </div>
+          <div
+            className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 MuiGrid-grid-sm-3 css-1iodmnl-MuiGrid-root"
+          >
+            <div
+              className="MuiBox-root css-k89fds"
+            >
+              <div
+                className="MuiBox-root css-1ta9i4n"
+              >
+                1.000,00
+                 €
+              </div>
+              <div
+                className="MuiBox-root css-0"
+              >
+                <div
+                  className="MuiBox-root css-1xp4ifp"
+                >
+                  for 
+                  1 months
+                </div>
+              </div>
+              <div
+                className="MuiBox-root css-1mx81oj"
+              >
+                1.050,00€ / month
+              </div>
+            </div>
+          </div>
+          <div
+            className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-3 css-19wfpws-MuiGrid-root"
+          >
+            <div
+              className="MuiBox-root css-s2uf1z"
+            >
+              <span
+                className="waiting-approval MuiBox-root css-1b94rea"
+              >
+                waiting approval
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-labelledby="loans-tab-1"
+    hidden={true}
+    id="loans-tabpanel-1"
+    role="tabpanel"
+  />
+  <div
+    aria-labelledby="loans-tab-2"
+    hidden={true}
+    id="loans-tabpanel-2"
+    role="tabpanel"
+  />
+  <div
+    aria-labelledby="loans-tab-3"
+    hidden={true}
+    id="loans-tabpanel-3"
+    role="tabpanel"
+  />
+  <div
+    aria-labelledby="loans-tab-4"
+    hidden={true}
+    id="loans-tabpanel-4"
+    role="tabpanel"
+  />
+</div>
+`;

@@ -58,7 +58,6 @@ export const LoansList: React.FC<{ loans: LoanRequest[] }> = ({ loans }) => {
                   <Status
                     component="span"
                     sx={{ ml: 2, mb: -0.5 }}
-                    // TODO: rewrite with statuses
                     className={`${loan.status.replaceAll(/\s+/g, '-')}`}
                   >
                     {loan.status}

@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders <LoansTabs/> with rejected only data 1`] = `
+<div
+  className="MuiBox-root css-0"
+>
+  <div
+    className="MuiBox-root css-0"
+  >
+    <div
+      className="MuiTabs-root css-u6xdzt-MuiTabs-root"
+    >
+      <div
+        className="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+        style={
+          Object {
+            "height": 99,
+            "overflow": "scroll",
+            "position": "absolute",
+            "top": -9999,
+            "width": 99,
+          }
+        }
+      />
+      <div
+        className="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+        style={
+          Object {
+            "marginBottom": -0,
+            "overflow": "hidden",
+          }
+        }
+      >
+        <div
+          aria-label="loans tabs"
+          aria-orientation={null}
+          className="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+          onKeyDown={[Function]}
+          role="tablist"
+        >
+          <button
+            aria-controls="loans-tabpanel-4"
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root MuiTab-textColorSecondary css-z6rlig-MuiButtonBase-root-MuiTab-root"
+            disabled={false}
+            id="loans-tab-4"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              className="MuiBox-root css-10iahqc"
+            >
+              rejected loans
+               
+              <span
+                className="MuiBox-root css-p9qzma"
+              >
+                1
+              </span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-labelledby="loans-tab-0"
+    hidden={true}
+    id="loans-tabpanel-0"
+    role="tabpanel"
+  />
+  <div
+    aria-labelledby="loans-tab-1"
+    hidden={true}
+    id="loans-tabpanel-1"
+    role="tabpanel"
+  />
+  <div
+    aria-labelledby="loans-tab-2"
+    hidden={false}
+    id="loans-tabpanel-2"
+    role="tabpanel"
+  >
+    <div
+      className="MuiBox-root css-19kzrtu"
+    >
+      <div
+        className="MuiBox-root css-rh1axf"
+      >
+        Financing
+      </div>
+      <div
+        className="MuiBox-root css-130f8nx"
+      >
+        <div
+          className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-10g80yh-MuiPaper-root-MuiCard-root"
+        >
+          <div
+            className="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+          >
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+            >
+              Loan ID
+            </div>
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+            >
+              <div
+                className="MuiBox-root css-s2uf1z"
+              >
+                Requested
+              </div>
+            </div>
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+            >
+              <div
+                className="MuiBox-root css-s2uf1z"
+              >
+                Duration
+              </div>
+            </div>
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root"
+            >
+              <div
+                className="MuiBox-root css-s2uf1z"
+              >
+                Amount
+              </div>
+            </div>
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root"
+            >
+              <div
+                className="MuiBox-root css-s2uf1z"
+              >
+                Status
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-labelledby="loans-tab-3"
+    hidden={true}
+    id="loans-tabpanel-3"
+    role="tabpanel"
+  />
+  <div
+    aria-labelledby="loans-tab-4"
+    hidden={true}
+    id="loans-tabpanel-4"
+    role="tabpanel"
+  />
+</div>
+`;

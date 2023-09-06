@@ -1,5 +1,6 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import theme from '../../theme/theme';
+
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import { LoansView } from '../Loans/LoansView';

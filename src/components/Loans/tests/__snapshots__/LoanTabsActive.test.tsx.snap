@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders <LoansTabs/> with active only data 1`] = `
+<div
+  className="MuiBox-root css-0"
+>
+  <div
+    className="MuiBox-root css-0"
+  >
+    <div
+      className="MuiTabs-root css-u6xdzt-MuiTabs-root"
+    >
+      <div
+        className="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+        style={
+          Object {
+            "height": 99,
+            "overflow": "scroll",
+            "position": "absolute",
+            "top": -9999,
+            "width": 99,
+          }
+        }
+      />
+      <div
+        className="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+        style={
+          Object {
+            "marginBottom": -0,
+            "overflow": "hidden",
+          }
+        }
+      >
+        <div
+          aria-label="loans tabs"
+          aria-orientation={null}
+          className="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+          onKeyDown={[Function]}
+          role="tablist"
+        >
+          <button
+            aria-controls="loans-tabpanel-2"
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root MuiTab-textColorSecondary css-z6rlig-MuiButtonBase-root-MuiTab-root"
+            disabled={false}
+            id="loans-tab-2"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              className="MuiBox-root css-10iahqc"
+            >
+              active loans
+               
+              <span
+                className="MuiBox-root css-p9qzma"
+              >
+                1
+              </span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-labelledby="loans-tab-0"
+    hidden={true}
+    id="loans-tabpanel-0"
+    role="tabpanel"
+  />
+  <div
+    aria-labelledby="loans-tab-1"
+    hidden={true}
+    id="loans-tabpanel-1"
+    role="tabpanel"
+  />
+  <div
+    aria-labelledby="loans-tab-2"
+    hidden={true}
+    id="loans-tabpanel-2"
+    role="tabpanel"
+  />
+  <div
+    aria-labelledby="loans-tab-3"
+    hidden={true}
+    id="loans-tabpanel-3"
+    role="tabpanel"
+  />
+  <div
+    aria-labelledby="loans-tab-4"
+    hidden={true}
+    id="loans-tabpanel-4"
+    role="tabpanel"
+  />
+</div>
+`;

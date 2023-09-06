@@ -1,9 +1,7 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import App from './App';
 
-test('renders Welcome message', () => {
-  render(<App />);
-  const textElement = screen.getByText(/Financing/i);
-  expect(textElement).toBeInTheDocument();
+it('renders <App/>', () => {
+  const tree = renderer.create(<App />).toJSON();
+  expect(tree).toMatchSnapshot();
 });
