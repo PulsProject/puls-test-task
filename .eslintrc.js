@@ -3,6 +3,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb-typescript',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -32,6 +33,9 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': ['off'],
     'jsx-a11y/interactive-supports-focus': ['off'],
     'jsx-a11y/no-static-element-interactions': ['off'],
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-uses-react': 'off',
+    'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
   },
   settings: {
     react: {

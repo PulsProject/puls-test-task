@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
-const theme = createTheme({
+let theme = createTheme({
   palette: {
     primary: {
       main: '#3360FF',
@@ -36,6 +36,9 @@ const theme = createTheme({
       xl: 1440,
     },
   },
+});
+
+theme = createTheme(theme, {
   typography: {
     fontSize: 16,
     fontFamily: 'Inter, sans-serif',
@@ -49,6 +52,13 @@ const theme = createTheme({
       fontSize: 14,
       fontWeight: 400,
       lineHeight: 1.43,
+    },
+    subtitle2: {
+      fontSize: 12,
+      lineHeight: 1.33,
+      color: theme.palette.text.secondary,
+      fontWeight: 300,
+      fontFamily: 'inherit',
     },
   },
 });

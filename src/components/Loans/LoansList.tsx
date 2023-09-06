@@ -1,104 +1,128 @@
-import { Box, Card, Grid, Hidden, Typography, useMediaQuery } from '@mui/material';
-import moment from 'moment';
 import React from 'react';
+import moment from 'moment';
+
+// import { Box, Card, Grid, Hidden, Typography, useMediaQuery } from '@mui/system';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import {
+  LoanCard,
+  LoansListHeader,
+  Name,
+  NameSubtitle,
+  Date,
+  AmountWrapper,
+  Amount,
+} from './LoansListStyles';
+
 // eslint-disable-next-line import/extensions
 import data from '../../data/loans.json';
-import useStyles from './LoansListStyles';
-import theme from '../../theme/theme';
-
+import { type LoanRequest } from './LoanRequest';
 
 const LoansList: React.FC = () => {
-  const { loanRequests }: any = data;
-  const mobile = useMediaQuery(theme.breakpoints.down('xs'));
-  const styles = useStyles();
+  const { loanRequests } = data as unknown as { loanRequests: LoanRequest[] };
+  // const mobile = useMediaQuery(theme.breakpoints.down('xs'));
+  // const styles = useStyles();
 
   // eslint-disable-next-line no-console
   console.log(loanRequests);
 
   return (
     <>
-      <Typography variant="h2" sx={{ marginBottom: 8 }}>Financing</Typography>
-      <Hidden smDown>
-        <Card className={styles.loansListHeader} elevation={0}>
+      <Box sx={{ typography: 'h2', marginBottom: 8 }}>Financing</Box>
+      <Box sx={{ display: { sm: 'none', md: 'block' } }}>
+        <LoansListHeader elevation={0}>
           <Grid container>
-            <Grid item xs={2}>Loan ID</Grid>
-            <Grid item xs={2}><Box textAlign="right">Requested</Box></Grid>
-            <Grid item xs={2}><Box textAlign="right">Duration</Box></Grid>
-            <Grid item xs={3}><Box textAlign="right">Amount</Box></Grid>
-            <Grid item xs={3}><Box textAlign="right">Status</Box></Grid>
+            <Grid item xs={2}>
+              Loan ID
+            </Grid>
+            <Grid item xs={2}>
+              <Box textAlign="right">Requested</Box>
+            </Grid>
+            <Grid item xs={2}>
+              <Box textAlign="right">Duration</Box>
+            </Grid>
+            <Grid item xs={3}>
+              <Box textAlign="right">Amount</Box>
+            </Grid>
+            <Grid item xs={3}>
+              <Box textAlign="right">Status</Box>
+            </Grid>
           </Grid>
-        </Card>
-      </Hidden>
+        </LoansListHeader>
+      </Box>
       {loanRequests.map((loan: any) => (
-        <Card className={styles.loanCard} key={loan.id}>
-          <Grid container alignItems={mobile ? 'flex-start' : 'center'}>
+        <LoanCard key={loan.id}>
+          <Grid
+            container
+            sx={{ alignItems: { xs: 'flex-start', sm: 'center' } }}
+          >
             <Grid item xs={7} sm={2}>
-              <span className={styles.name}>
-                <Hidden smDown>
-                  FL
-                  {' '}
-                </Hidden>
+              <Name component={'span'}>
+                <Box sx={{ display: { sm: 'none', md: 'block' } }}>FL</Box>
                 {loan.externalId}
-              </span>
-              <Hidden smUp>
-                <Box component="span" ml={2} mb={-0.5} className={`${styles.status} ${loan.status.replaceAll(/\s+/g, '-')}`}>
+              </Name>
+              <Box sx={{ display: { sm: 'block', md: 'none' } }}>
+                <Box
+                  component="span"
+                  sx={{ ml: 2, mb: -0.5 }}
+                  // TODO: rewrite with statuses
+                  // className={`${loan.status.replaceAll(/\s+/g, '-')}`}
+                >
                   {loan.status}
                 </Box>
-              </Hidden>
-              <div className={`${styles.subtitle} ${styles.nameSubtitle}`}>{loan.account?.company.name}</div>
-              <Hidden smUp>
-                <Box className={styles.date} pt={1} color={theme.palette.text.secondary}>
+              </Box>
+              <NameSubtitle sx={{ typography: 'subtitle2' }}>
+                {loan.account?.company.name}
+              </NameSubtitle>
+              <Box>
+                <Date sx={{ pt: 1, color: 'text.secondary' }}>
                   {moment(loan.createdAt).format('DD MMM YYYY')}
-                </Box>
-              </Hidden>
+                </Date>
+              </Box>
             </Grid>
-            <Hidden smDown>
+            <Box>
               <Grid item xs={12} sm={2}>
-                <div className={styles.date}>
-                  {moment(loan.createdAt).format('DD MMM YYYY')}
-                </div>
+                <Date>{moment(loan.createdAt).format('DD MMM YYYY')}</Date>
               </Grid>
               <Grid item xs sm={2}>
-                <div className={styles.date}>
-                  {`${loan.duration} months`}
-                </div>
+                <Date>{`${loan.duration} months`}</Date>
               </Grid>
-            </Hidden>
+            </Box>
             <Grid item xs={5} sm={3}>
-              <Box className={styles.amountBox}>
-                <Typography component="div" variant="caption" className={styles.amount} align="right">
+              <AmountWrapper>
+                <Amount sx={{ typography: 'caption', textAlign: 'right' }}>
                   {`${loan.amount.toLocaleString('de-DE', {
                     minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
                   })}`}
                   &nbsp;€
-                </Typography>
-                <Hidden smUp>
-                  <Box mt={2} mb={1} className={styles.date} color={theme.palette.text.secondary} textAlign="right">
-                    for
-                    {' '}
-                    {`${loan.duration} months`}
-                  </Box>
-                </Hidden>
-                <Box className={styles.subtitle} textAlign="right">
+                </Amount>
+                <Box>
+                  <Date sx={{ mt: 2, mb: 1, color: 'text.secondary' }}>
+                    for {`${loan.duration} months`}
+                  </Date>
+                </Box>
+                <Box sx={{ typography: 'subtitle2', textAlign: 'right' }}>
                   {`${loan.monthlyPayment.toLocaleString('de-DE', {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
                   })}€ / month`}
                 </Box>
-              </Box>
+              </AmountWrapper>
             </Grid>
-            <Hidden smDown>
+            <Box sx={{ display: { sm: 'none', md: 'block' } }}>
               <Grid item xs={12} sm={3}>
-                <Box textAlign="right">
-                  <span className={`${styles.status} ${loan.status.replaceAll(/\s+/g, '-')}`}>
-                    {loan.status}
-                  </span>
+                <Box
+                  sx={{
+                    textAlign: 'right',
+                  }}
+                >
+                  {/* <span className={`${loan.status.replaceAll(/\s+/g, '-')}`}> */}
+                  <Box component={'span'}>{loan.status}</Box>
                 </Box>
               </Grid>
-            </Hidden>
+            </Box>
           </Grid>
-        </Card>
+        </LoanCard>
       ))}
     </>
   );
