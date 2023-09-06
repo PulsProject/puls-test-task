@@ -50,9 +50,9 @@ function a11yProps(index: number) {
 }
 
 export const LoansTabs = ({
-  loanRequests = [],
+  loanRequests,
 }: {
-  loanRequests?: LoanRequest[];
+  loanRequests: LoanRequest[];
 }) => {
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down('sm'));
