@@ -65,8 +65,8 @@ export const Amount = styled(Box)(({ theme }) => ({
 export const Status = styled(Box)(({ theme }) => ({
   display: 'inline-flex',
   alignItems: 'center',
-  padding: `${theme.spacing(1.5)}px ${theme.spacing(3)}px`,
-  height: `${theme.spacing(6)}px`,
+  padding: `${theme.spacing(1.5)} ${theme.spacing(3)}`,
+  height: `${theme.spacing(6)}`,
   borderRadius: 100,
   fontSize: 12,
   fontWeight: theme.typography.fontWeightBold,
@@ -75,8 +75,8 @@ export const Status = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down('sm')]: {
     display: 'inline-flex',
-    padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
-    height: `${theme.spacing(5)}px`,
+    padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
+    height: `${theme.spacing(5)}`,
   },
 
   '&.rejected': {

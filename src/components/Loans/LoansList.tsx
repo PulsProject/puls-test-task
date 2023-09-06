@@ -1,7 +1,6 @@
 import React from 'react';
 import moment from 'moment';
 
-// import { Box, Card, Grid, Hidden, Typography, useMediaQuery } from '@mui/system';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import {
@@ -12,6 +11,7 @@ import {
   Date,
   AmountWrapper,
   Amount,
+  Status,
 } from './LoansListStyles';
 
 // eslint-disable-next-line import/extensions
@@ -20,8 +20,6 @@ import { type LoanRequest } from './LoanRequest';
 
 const LoansList: React.FC = () => {
   const { loanRequests } = data as unknown as { loanRequests: LoanRequest[] };
-  // const mobile = useMediaQuery(theme.breakpoints.down('xs'));
-  // const styles = useStyles();
 
   // eslint-disable-next-line no-console
   console.log(loanRequests);
@@ -29,23 +27,23 @@ const LoansList: React.FC = () => {
   return (
     <>
       <Box sx={{ typography: 'h2', marginBottom: 8 }}>Financing</Box>
-      <Box sx={{ display: { sm: 'none', md: 'block' } }}>
+      <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
         <LoansListHeader elevation={0}>
           <Grid container>
             <Grid item xs={2}>
               Loan ID
             </Grid>
             <Grid item xs={2}>
-              <Box textAlign="right">Requested</Box>
+              <Box sx={{ textAlign: 'right' }}>Requested</Box>
             </Grid>
             <Grid item xs={2}>
-              <Box textAlign="right">Duration</Box>
+              <Box sx={{ textAlign: 'right' }}>Duration</Box>
             </Grid>
             <Grid item xs={3}>
-              <Box textAlign="right">Amount</Box>
+              <Box sx={{ textAlign: 'right' }}>Amount</Box>
             </Grid>
             <Grid item xs={3}>
-              <Box textAlign="right">Status</Box>
+              <Box sx={{ textAlign: 'right' }}>Status</Box>
             </Grid>
           </Grid>
         </LoansListHeader>
@@ -58,18 +56,18 @@ const LoansList: React.FC = () => {
           >
             <Grid item xs={7} sm={2}>
               <Name component={'span'}>
-                <Box sx={{ display: { sm: 'none', md: 'block' } }}>FL</Box>
+                <Box sx={{ display: { xs: 'none', sm: 'block' } }}>FL</Box>
                 {loan.externalId}
               </Name>
-              <Box sx={{ display: { sm: 'block', md: 'none' } }}>
-                <Box
+              <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
+                <Status
                   component="span"
                   sx={{ ml: 2, mb: -0.5 }}
                   // TODO: rewrite with statuses
-                  // className={`${loan.status.replaceAll(/\s+/g, '-')}`}
+                  className={`${loan.status.replaceAll(/\s+/g, '-')}`}
                 >
                   {loan.status}
-                </Box>
+                </Status>
               </Box>
               <NameSubtitle sx={{ typography: 'subtitle2' }}>
                 {loan.account?.company.name}
@@ -80,14 +78,17 @@ const LoansList: React.FC = () => {
                 </Date>
               </Box>
             </Grid>
-            <Box>
-              <Grid item xs={12} sm={2}>
-                <Date>{moment(loan.createdAt).format('DD MMM YYYY')}</Date>
-              </Grid>
-              <Grid item xs sm={2}>
-                <Date>{`${loan.duration} months`}</Date>
-              </Grid>
-            </Box>
+            <Grid
+              item
+              xs={12}
+              sm={2}
+              sx={{ display: { xs: 'none', sm: 'block' } }}
+            >
+              <Date>{moment(loan.createdAt).format('DD MMM YYYY')}</Date>
+            </Grid>
+            <Grid item xs sm={2} sx={{ display: { xs: 'none', sm: 'block' } }}>
+              <Date>{`${loan.duration} months`}</Date>
+            </Grid>
             <Grid item xs={5} sm={3}>
               <AmountWrapper>
                 <Amount sx={{ typography: 'caption', textAlign: 'right' }}>
@@ -109,18 +110,25 @@ const LoansList: React.FC = () => {
                 </Box>
               </AmountWrapper>
             </Grid>
-            <Box sx={{ display: { sm: 'none', md: 'block' } }}>
-              <Grid item xs={12} sm={3}>
-                <Box
-                  sx={{
-                    textAlign: 'right',
-                  }}
+            <Grid
+              item
+              xs={12}
+              sm={3}
+              sx={{ display: { xs: 'none', sm: 'block' } }}
+            >
+              <Box
+                sx={{
+                  textAlign: 'right',
+                }}
+              >
+                <Status
+                  className={`${loan.status.replaceAll(/\s+/g, '-')}`}
+                  component={'span'}
                 >
-                  {/* <span className={`${loan.status.replaceAll(/\s+/g, '-')}`}> */}
-                  <Box component={'span'}>{loan.status}</Box>
-                </Box>
-              </Grid>
-            </Box>
+                  {loan.status}
+                </Status>
+              </Box>
+            </Grid>
           </Grid>
         </LoanCard>
       ))}
