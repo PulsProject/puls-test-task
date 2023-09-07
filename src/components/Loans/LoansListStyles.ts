@@ -1,7 +1,15 @@
-import { Box, Card } from '@mui/material';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import Card from '@mui/material/Card';
 
 import { styled } from '@mui/material';
 import { alpha } from '@mui/material/styles';
+
+export const StyledTab = styled(Tab)(({ theme }) => ({
+  fontWeight: 700,
+  padding: `${theme.spacing(2)} ${theme.spacing(0)}`,
+}));
+
 
 export const LoanCard = styled(Card)(({ theme }) => ({
   marginBottom: theme.spacing(4),

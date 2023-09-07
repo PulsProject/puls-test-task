@@ -1,12 +1,12 @@
 import { useMemo, useState } from 'react';
 
 import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import { LoansList } from './LoansList';
+import { StyledTab } from './LoansListStyles';
 
-import { type LoanRequest } from './LoanRequest';
-import { styled, useMediaQuery, useTheme } from '@mui/material';
+import { type LoanRequest} from './LoanRequest';
+import { useMediaQuery, useTheme } from '@mui/material';
 
 function TabPanel(props: {
   children?: React.ReactNode;
@@ -28,12 +28,7 @@ function TabPanel(props: {
   );
 }
 
-const StyledTab = styled(Tab)(({ theme }) => ({
-  fontWeight: 700,
-  padding: `${theme.spacing(2)} ${theme.spacing(0)}`,
-}));
-
-const Label = ({ label, count }: { label: string; count: number }) => (
+export const Label = ({ label, count }: { label: string; count: number }) => (
   <Box sx={{ textTransform: 'capitalize' }}>
     {label}{' '}
     <Box component={'span'} sx={{ color: 'text.secondary' }}>
@@ -41,6 +36,7 @@ const Label = ({ label, count }: { label: string; count: number }) => (
     </Box>
   </Box>
 );
+
 
 function a11yProps(index: number) {
   return {
