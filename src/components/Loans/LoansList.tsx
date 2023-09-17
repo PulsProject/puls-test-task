@@ -1,19 +1,15 @@
 import { Box, Card, Grid, Hidden, Typography, useMediaQuery } from '@mui/material';
 import moment from 'moment';
 import React from 'react';
-// eslint-disable-next-line import/extensions
-import data from '../../data/loans.json';
 import useStyles from './LoansListStyles';
 import theme from '../../theme/theme';
 
 
-const LoansList: React.FC = () => {
-  const { loanRequests }: any = data;
+const LoansList: React.FC<{ loanRequests: unknown[] }> = ({
+  loanRequests,
+}) => {
   const mobile = useMediaQuery(theme.breakpoints.down('xs'));
   const styles = useStyles();
-
-  // eslint-disable-next-line no-console
-  console.log(loanRequests);
 
   return (
     <>

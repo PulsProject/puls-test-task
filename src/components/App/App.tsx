@@ -3,7 +3,9 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import theme from '../../theme/theme';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
-import LoansList from '../Loans/LoansList';
+import LoansTabs from '../LoansTabs/LoansTabs';
+// eslint-disable-next-line import/extensions
+import data from '../../data/loans.json';
 
 function App() {
   return (
@@ -12,7 +14,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Header />
         <Main>
-          <LoansList />
+          <LoansTabs loanRequests={(data as any).loanRequests} />
         </Main>
       </ThemeProvider>
     </>
