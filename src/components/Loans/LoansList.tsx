@@ -1,27 +1,28 @@
 import { Box, Card, Grid, Hidden, Tab, Tabs, Typography, useMediaQuery } from '@mui/material';
 import moment from 'moment';
 import React, { useMemo, useState } from 'react';
-// eslint-disable-next-line import/extensions
-import data from '../../data/loans.json';
 import useStyles from './LoansListStyles';
 import theme from '../../theme/theme';
 import useTabs from '../../hooks/useTabs';
 import { Loans } from '../../interfaces/loans';
 
-const LoansList: React.FC = () => {
-  const { loanRequests }: any = data;
+interface LoansListProps {
+  loansList: Loans[];
+}
+
+const LoansList: React.FC<LoansListProps> = ({ loansList }) => {
   const mobile = useMediaQuery(theme.breakpoints.down('xs'));
   const styles = useStyles();
 
-  const tabs = useTabs(loanRequests);
+  const tabs = useTabs(loansList);
   // eslint-disable-next-line no-console
-  console.log(loanRequests);
+  console.log(loansList);
 
   const [activeTab, setActiveTab] = useState(0);
 
   const filteredLoans = useMemo(() => {
     const activeTabObject = tabs[activeTab];
-    return loanRequests.filter((loan: Loans) => activeTabObject.status.includes(loan.status));
+    return loansList.filter((loan: Loans) => activeTabObject.status.includes(loan.status));
   }, [tabs, activeTab]);
 
   if (tabs.length === 0) {
@@ -32,11 +33,14 @@ const LoansList: React.FC = () => {
     <>
       <Box className={styles.menu}>
         <Typography variant="h2">Financing</Typography>
-        <Tabs onChange={(_, index) => setActiveTab(index)} value={activeTab} aria-label="basic tabs example" variant="scrollable" scrollButtons="auto" allowScrollButtonsMobile>
-          {tabs.map((tab) => (
-            <Tab key={tab.id} label={tab.label}/>
-          ))}
-        </Tabs>
+        {tabs.length === 1 && <Tab key={tabs[0].id} label={tabs[0].label}/>}
+        {tabs.length > 1 && (
+          <Tabs onChange={(_, index) => setActiveTab(index)} value={activeTab} aria-label="basic tabs example" variant="scrollable" scrollButtons="auto" allowScrollButtonsMobile>
+            {tabs.map((tab) => (
+              <Tab key={tab.id} label={tab.label}/>
+            ))}
+          </Tabs>
+        )}
       </Box>
       <Hidden smDown>
         <Card className={styles.loansListHeader} elevation={0}>
