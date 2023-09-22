@@ -38,7 +38,6 @@ const LoansList: React.FC = () => {
           ))}
         </Tabs>
       </Box>
-      {/* @ts-ignore */}
       <Hidden smDown>
         <Card className={styles.loansListHeader} elevation={0}>
           <Grid container>
@@ -55,28 +54,24 @@ const LoansList: React.FC = () => {
           <Grid container alignItems={mobile ? 'flex-start' : 'center'}>
             <Grid item xs={7} sm={2}>
               <span className={styles.name}>
-                {/* @ts-ignore */}
                 <Hidden smDown>
                   FL
                   {' '}
                 </Hidden>
                 {loan.externalId}
               </span>
-              {/* @ts-ignore */}
               <Hidden smUp>
                 <Box component="span" ml={2} mb={-0.5} className={`${styles.status} ${loan.status.replaceAll(/\s+/g, '-')}`}>
                   {loan.status}
                 </Box>
               </Hidden>
               <div className={`${styles.subtitle} ${styles.nameSubtitle}`}>{loan.account?.company.name}</div>
-              {/* @ts-ignore */}
               <Hidden smUp>
                 <Box className={styles.date} pt={1} color={theme.palette.text.secondary}>
                   {moment(loan.createdAt).format('DD MMM YYYY')}
                 </Box>
               </Hidden>
             </Grid>
-            {/* @ts-ignore */}
             <Hidden smDown>
               <Grid item xs={12} sm={2}>
                 <div className={styles.date}>
@@ -98,7 +93,6 @@ const LoansList: React.FC = () => {
                   })}`}
                   &nbsp;€
                 </Typography>
-                {/* @ts-ignore */}
                 <Hidden smUp>
                   <Box mt={2} mb={1} className={styles.date} color={theme.palette.text.secondary} textAlign="right">
                     for
@@ -114,7 +108,6 @@ const LoansList: React.FC = () => {
                 </Box>
               </Box>
             </Grid>
-            {/* @ts-ignore */}
             <Hidden smDown>
               <Grid item xs={12} sm={3}>
                 <Box textAlign="right">
