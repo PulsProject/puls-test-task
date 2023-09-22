@@ -2,6 +2,13 @@ import { alpha, Theme } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
 
 export default makeStyles((theme: Theme) => ({
+  menu: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    maxWidth: 800,
+    marginBottom: theme.spacing(4),
+  },
   loanCard: {
     marginBottom: theme.spacing(4),
     padding: theme.spacing(4, 6),

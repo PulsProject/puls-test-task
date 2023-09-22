@@ -1,23 +1,44 @@
-import { Box, Card, Grid, Hidden, Typography, useMediaQuery } from '@mui/material';
+import { Box, Card, Grid, Hidden, Tab, Tabs, Typography, useMediaQuery } from '@mui/material';
 import moment from 'moment';
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 // eslint-disable-next-line import/extensions
 import data from '../../data/loans.json';
 import useStyles from './LoansListStyles';
 import theme from '../../theme/theme';
-
+import useTabs from '../../hooks/useTabs';
+import { Loans } from '../../interfaces/loans';
 
 const LoansList: React.FC = () => {
   const { loanRequests }: any = data;
   const mobile = useMediaQuery(theme.breakpoints.down('xs'));
   const styles = useStyles();
 
+  const tabs = useTabs(loanRequests);
   // eslint-disable-next-line no-console
   console.log(loanRequests);
 
+  const [activeTab, setActiveTab] = useState(0);
+
+  const filteredLoans = useMemo(() => {
+    const activeTabObject = tabs[activeTab];
+    return loanRequests.filter((loan: Loans) => activeTabObject.status.includes(loan.status));
+  }, [tabs, activeTab]);
+
+  if (tabs.length === 0) {
+    return <Typography variant="h2" sx={{ textAlign: 'center' }}>There are no loans</Typography>;
+  }
+
   return (
     <>
-      <Typography variant="h2" sx={{ marginBottom: 8 }}>Financing</Typography>
+      <Box className={styles.menu}>
+        <Typography variant="h2">Financing</Typography>
+        <Tabs onChange={(_, index) => setActiveTab(index)} value={activeTab} aria-label="basic tabs example" variant="scrollable" scrollButtons="auto" allowScrollButtonsMobile>
+          {tabs.map((tab) => (
+            <Tab key={tab.id} label={tab.label}/>
+          ))}
+        </Tabs>
+      </Box>
+      {/* @ts-ignore */}
       <Hidden smDown>
         <Card className={styles.loansListHeader} elevation={0}>
           <Grid container>
@@ -29,29 +50,33 @@ const LoansList: React.FC = () => {
           </Grid>
         </Card>
       </Hidden>
-      {loanRequests.map((loan: any) => (
+      {filteredLoans.map((loan: Loans) => (
         <Card className={styles.loanCard} key={loan.id}>
           <Grid container alignItems={mobile ? 'flex-start' : 'center'}>
             <Grid item xs={7} sm={2}>
               <span className={styles.name}>
+                {/* @ts-ignore */}
                 <Hidden smDown>
                   FL
                   {' '}
                 </Hidden>
                 {loan.externalId}
               </span>
+              {/* @ts-ignore */}
               <Hidden smUp>
                 <Box component="span" ml={2} mb={-0.5} className={`${styles.status} ${loan.status.replaceAll(/\s+/g, '-')}`}>
                   {loan.status}
                 </Box>
               </Hidden>
               <div className={`${styles.subtitle} ${styles.nameSubtitle}`}>{loan.account?.company.name}</div>
+              {/* @ts-ignore */}
               <Hidden smUp>
                 <Box className={styles.date} pt={1} color={theme.palette.text.secondary}>
                   {moment(loan.createdAt).format('DD MMM YYYY')}
                 </Box>
               </Hidden>
             </Grid>
+            {/* @ts-ignore */}
             <Hidden smDown>
               <Grid item xs={12} sm={2}>
                 <div className={styles.date}>
@@ -73,6 +98,7 @@ const LoansList: React.FC = () => {
                   })}`}
                   &nbsp;€
                 </Typography>
+                {/* @ts-ignore */}
                 <Hidden smUp>
                   <Box mt={2} mb={1} className={styles.date} color={theme.palette.text.secondary} textAlign="right">
                     for
@@ -88,6 +114,7 @@ const LoansList: React.FC = () => {
                 </Box>
               </Box>
             </Grid>
+            {/* @ts-ignore */}
             <Hidden smDown>
               <Grid item xs={12} sm={3}>
                 <Box textAlign="right">
