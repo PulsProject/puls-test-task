@@ -1,6 +1,7 @@
 # PULS test task
 
-This is a test task for FE position
+1. I added `css-mediaquery` to dependencies to render some hidden elements in jsdom environment.
+2. I moved `loanRequests` dependency in `LoanList.tsx` to props for easier testing.
 
 ## How to run locally
 
