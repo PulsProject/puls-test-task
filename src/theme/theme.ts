@@ -51,6 +51,25 @@ const theme = createTheme({
       lineHeight: 1.43,
     },
   },
+  components: {
+    MuiBadge: {
+      styleOverrides: {
+        badge: {
+          top: '10px',
+          right: '-7px',
+          fontSize: '1rem',
+          color: '#747C91',
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          textTransform: 'capitalize',
+        },
+      },
+    },
+  },
 });
 
 export default theme;

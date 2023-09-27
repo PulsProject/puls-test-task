@@ -1,9 +1,9 @@
 import React from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import theme from '../../theme/theme';
-import Header from '../Header/Header';
-import Main from '../Main/Main';
-import LoansList from '../Loans/LoansList';
+import theme from '../theme/theme';
+import Header from '../components/Header/Header';
+import Main from '../components/Main/Main';
+import LoansList from '../components/Loans/LoansList';
 
 function App() {
   return (
