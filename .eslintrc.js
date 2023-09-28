@@ -1,8 +1,11 @@
 module.exports = {
   root: true,
   extends: [
+    'react-app',
+    'react-app/jest',
     'plugin:react/recommended',
     'airbnb-typescript',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -14,19 +17,16 @@ module.exports = {
     sourceType: 'module',
     createDefaultProgram: true,
   },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-    'import',
-  ],
+  plugins: ['react', '@typescript-eslint', 'import'],
   ignorePatterns: ['src/generated', 'src/data/loans.json'],
   rules: {
     'import/extensions': ['error', { devDependencies: true }],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
-    'spaced-comment': ['error', 'always', { 'markers': ['/'] }],
+    'import/no-anonymous-default-export': ['off'],
+    'spaced-comment': ['error', 'always', { markers: ['/'] }],
     'comma-dangle': ['off'],
-    'no-console': ['error', { 'allow': ['warn', 'error'] }],
-    'no-param-reassign': ['error', { 'props': false }],
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'no-param-reassign': ['error', { props: false }],
     'react/jsx-props-no-spreading': ['off'],
     'react/jsx-no-duplicate-props': ['error', { ignoreCase: false }],
     'jsx-a11y/click-events-have-key-events': ['off'],
