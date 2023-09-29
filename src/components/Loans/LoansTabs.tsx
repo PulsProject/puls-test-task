@@ -21,29 +21,25 @@ const LoansTabs: React.FC<LoansTabsProps> = ({ tabs, activeTabValue, setTabValue
 
   return (
     <Box sx={{ width: '100%' }}>
-      {!tabs.length ? (
-        <Box sx={{ minHeight: '48px' }}>We currently do not have any loan requests on record</Box>
-      ) : (
-        <Tabs
-          value={activeTabValue}
-          onChange={handleChange}
-          variant="scrollable"
-          scrollButtons={false}
-          textColor="secondary"
-          indicatorColor="secondary"
-          aria-label="loan requests tabs">
-          {tabs.map((tab) => (
-            <Tab
-              className={styles.loansTab}
-              key={tab.tabValue}
-              value={tab.tabValue}
-              label={<TabLabel {...tab} />}
-              id={`simple-tab-${tab.tabValue}`}
-              aria-controls={`simple-tabpanel-${tab.tabValue}`}
-            />
-          ))}
-        </Tabs>
-      )}
+      <Tabs
+        value={activeTabValue}
+        onChange={handleChange}
+        variant="scrollable"
+        scrollButtons={false}
+        textColor="secondary"
+        indicatorColor="secondary"
+        aria-label="loan requests tabs">
+        {tabs.map((tab) => (
+          <Tab
+            className={styles.loansTab}
+            key={tab.tabValue}
+            value={tab.tabValue}
+            label={<TabLabel {...tab} />}
+            id={`simple-tab-${tab.tabValue}`}
+            aria-controls={`simple-tabpanel-${tab.tabValue}`}
+          />
+        ))}
+      </Tabs>
     </Box>
   );
 };
