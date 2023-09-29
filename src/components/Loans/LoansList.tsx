@@ -1,23 +1,30 @@
 import { Box, Card, Grid, Hidden, Typography, useMediaQuery } from '@mui/material';
 import moment from 'moment';
 import React from 'react';
+import LoansTabs from '../Loans/LoansTabs';
+import { getLoansMap, getTabDetails } from './utils';
+import { LoanRequest } from '../../data/Interfaces';
+import { LoansMap, TabDetails } from './Interfaces';
 // eslint-disable-next-line import/extensions
 import data from '../../data/loans.json';
 import useStyles from './LoansListStyles';
 import theme from '../../theme/theme';
 
-
 const LoansList: React.FC = () => {
-  const { loanRequests }: any = data;
+  const { loanRequests } = data as unknown as { loanRequests: LoanRequest[] }
   const mobile = useMediaQuery(theme.breakpoints.down('xs'));
   const styles = useStyles();
-
   // eslint-disable-next-line no-console
   console.log(loanRequests);
+
+  const loansMap: LoansMap = React.useMemo(() => (getLoansMap(loanRequests)), [loanRequests]);
+  const tabDetails: TabDetails[] = getTabDetails(loansMap)
+  const [tabValue, setTabValue] = React.useState(tabDetails[0].tabValue)
 
   return (
     <>
       <Typography variant="h2" sx={{ marginBottom: 8 }}>Financing</Typography>
+      <LoansTabs tabs={tabDetails} activeTab={tabValue} setTabValue={setTabValue} />
       <Hidden smDown>
         <Card className={styles.loansListHeader} elevation={0}>
           <Grid container>
@@ -29,8 +36,8 @@ const LoansList: React.FC = () => {
           </Grid>
         </Card>
       </Hidden>
-      {loanRequests.map((loan: any) => (
-        <Card className={styles.loanCard} key={loan.id}>
+      {loansMap[tabValue].map((loan: LoanRequest) => (
+        <Card className={styles.loanCard} key={loan.id} role="tabpanel" id={`simple-tabpanel-${tabValue}`} aria-labelledby={`simple-tab-${tabValue}`}>
           <Grid container alignItems={mobile ? 'flex-start' : 'center'}>
             <Grid item xs={7} sm={2}>
               <span className={styles.name}>
