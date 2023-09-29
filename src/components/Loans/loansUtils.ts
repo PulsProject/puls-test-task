@@ -53,7 +53,6 @@ export const splitLoanRequestsByTabs = (loans: LoanRequest[]): LoanRequestsByTab
           return loansByTabs;
       }
       loansByTabs[tab].push(loan);
-      console.log('LoanRequestsByTabs –> loansByTabs:', loansByTabs); // TODO: remove this line
       return loansByTabs;
     },
     {

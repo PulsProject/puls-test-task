@@ -8,24 +8,30 @@ import { TabType, TabDetails } from './loansUtils';
 
 interface LoansTabsProps {
   tabs: TabDetails[];
-  activeTab: TabType;
+  activeTabValue: TabType;
   setTabValue: (value: TabType) => void;
 }
 
-const LoansTabs: React.FC<LoansTabsProps> = ({ tabs, activeTab, setTabValue }) => {
+const LoansTabs: React.FC<LoansTabsProps> = ({ tabs, activeTabValue, setTabValue }) => {
   const styles = useStyles();
 
-  const handleChange = (_: React.SyntheticEvent, newValue: TabType) => {
-    console.log(newValue); // TODO: remove
+  const handleChange = (_event: React.SyntheticEvent, newValue: TabType) => {
     setTabValue(newValue);
   };
 
-  if (!tabs.length) return <Box sx={{ width: '100%', minHeight: '48px' }}>There&apos;s nothing to show here</Box>;
-
   return (
     <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={activeTab} onChange={handleChange} aria-label="loan requests tabs">
+      {!tabs.length ? (
+        <Box sx={{ minHeight: '48px' }}>We currently do not have any loan requests on record</Box>
+      ) : (
+        <Tabs
+          value={activeTabValue}
+          onChange={handleChange}
+          variant="scrollable"
+          scrollButtons={false}
+          textColor="secondary"
+          indicatorColor="secondary"
+          aria-label="loan requests tabs">
           {tabs.map((tab) => (
             <Tab
               className={styles.loansTab}
@@ -37,7 +43,7 @@ const LoansTabs: React.FC<LoansTabsProps> = ({ tabs, activeTab, setTabValue }) =
             />
           ))}
         </Tabs>
-      </Box>
+      )}
     </Box>
   );
 };
