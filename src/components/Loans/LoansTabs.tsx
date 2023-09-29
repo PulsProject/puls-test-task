@@ -4,19 +4,12 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import TabLabel from './TabLabel';
 import useStyles from './LoansTabsStyles';
-import { TabType, TabDetails } from './Interfaces';
+import { TabType, TabDetails } from './loansUtils';
 
 interface LoansTabsProps {
   tabs: TabDetails[];
   activeTab: TabType;
   setTabValue: (value: TabType) => void;
-}
-
-function a11yProps(value: string) {
-  return {
-    id: `simple-tab-${value}`,
-    'aria-controls': `simple-tabpanel-${value}`,
-  };
 }
 
 const LoansTabs = ({ tabs, activeTab, setTabValue }: LoansTabsProps) => {
@@ -39,7 +32,8 @@ const LoansTabs = ({ tabs, activeTab, setTabValue }: LoansTabsProps) => {
               key={tab.tabValue}
               label={<TabLabel {...tab} />}
               value={tab.tabValue}
-              {...a11yProps(tab.tabValue)}
+              id={`simple-tab-${tab.tabValue}`}
+              aria-controls={`simple-tabpanel-${tab.tabValue}`}
             />
           ))}
         </Tabs>
