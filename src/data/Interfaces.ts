@@ -1,17 +1,26 @@
-export type Status =
-  | 'waiting approval'
-  | 'pending settlement'
-  | 'to be disbursed'
-  | 'active'
-  | 'rejected'
-  | 'closed';
+export enum LoanStatus {
+  WAITING_APPROVAL = 'waiting approval',
+  PENDING_SETTLEMENT = 'pending settlement',
+  TO_BE_DISBURSED = 'to be disbursed',
+  ACTIVE = 'active',
+  REJECTED = 'rejected',
+  CLOSED = 'closed',
+}
+
+export type StatusType =
+  | LoanStatus.WAITING_APPROVAL
+  | LoanStatus.PENDING_SETTLEMENT
+  | LoanStatus.TO_BE_DISBURSED
+  | LoanStatus.ACTIVE
+  | LoanStatus.REJECTED
+  | LoanStatus.CLOSED;
 
 export interface LoanRequest {
   id: number;
   externalId: string;
   amount: number;
   duration: number;
-  status: Status;
+  status: StatusType;
   monthlyPayment: number;
   interestRate: number;
   externalProductId: number;
