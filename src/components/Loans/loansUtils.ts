@@ -2,7 +2,7 @@ import { LoanRequest, LoanStatus } from '../../data/Interfaces';
 
 export enum LoanTab {
   WAITING = 'waiting approval',
-  PENDING = 'pending loans',
+  PENDING = 'pending requests',
   ACTIVE = 'active loans',
   CLOSED = 'closed loans',
   REJECTED = 'rejected loans',
