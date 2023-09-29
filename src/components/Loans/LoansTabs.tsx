@@ -12,7 +12,7 @@ interface LoansTabsProps {
   setTabValue: (value: TabType) => void;
 }
 
-const LoansTabs = ({ tabs, activeTab, setTabValue }: LoansTabsProps) => {
+const LoansTabs: React.FC<LoansTabsProps> = ({ tabs, activeTab, setTabValue }) => {
   const styles = useStyles();
 
   const handleChange = (_: React.SyntheticEvent, newValue: TabType) => {
@@ -30,8 +30,8 @@ const LoansTabs = ({ tabs, activeTab, setTabValue }: LoansTabsProps) => {
             <Tab
               className={styles.loansTab}
               key={tab.tabValue}
-              label={<TabLabel {...tab} />}
               value={tab.tabValue}
+              label={<TabLabel {...tab} />}
               id={`simple-tab-${tab.tabValue}`}
               aria-controls={`simple-tabpanel-${tab.tabValue}`}
             />

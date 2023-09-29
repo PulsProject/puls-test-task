@@ -11,7 +11,7 @@ interface LoansListProps {
   tabValue: TabType
 };
 
-const LoansList = ({ loanRequests, tabValue }: LoansListProps) => {
+const LoansList: React.FC<LoansListProps> = ({ loanRequests, tabValue }) => {
   const mobile = useMediaQuery(theme.breakpoints.down('xs'));
   const styles = useStyles();
 
