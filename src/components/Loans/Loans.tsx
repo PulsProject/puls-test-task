@@ -22,7 +22,7 @@ const Loans: React.FC = () => {
   const [tabValue, setTabValue] = React.useState(tabDetailsList[0]?.tabValue);
 
   return (
-    <>
+    <Box sx={{ maxWidth: '100%', marginLeft: 'auto', marginRight: 'auto' }}>
       <Typography variant="h2" sx={{ marginBottom: 8 }}>Financing</Typography>
 
       {!loanRequests.length ? (
@@ -33,7 +33,7 @@ const Loans: React.FC = () => {
           <LoansList loanRequests={loanRequestsByTabs} tabValue={tabValue} />
         </Box>
       )}
-    </>
+    </Box>
   );
 };
 

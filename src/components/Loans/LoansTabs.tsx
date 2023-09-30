@@ -1,5 +1,4 @@
 import React from 'react';
-import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import TabLabel from './TabLabel';
@@ -20,27 +19,25 @@ const LoansTabs: React.FC<LoansTabsProps> = ({ tabs, activeTabValue, setTabValue
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Tabs
-        value={activeTabValue}
-        onChange={handleChange}
-        variant="scrollable"
-        scrollButtons={false}
-        textColor="secondary"
-        indicatorColor="secondary"
-        aria-label="loan requests tabs">
-        {tabs.map((tab) => (
-          <Tab
-            className={styles.loansTab}
-            key={tab.tabValue}
-            value={tab.tabValue}
-            label={<TabLabel {...tab} />}
-            id={`loan-tab-${tab.tabValue}`}
-            aria-controls={`loan-card-${tab.tabValue}`}
-          />
-        ))}
-      </Tabs>
-    </Box>
+    <Tabs
+      value={activeTabValue}
+      onChange={handleChange}
+      variant="scrollable"
+      scrollButtons={false}
+      textColor="secondary"
+      indicatorColor="secondary"
+      aria-label="loan requests tabs">
+      {tabs.map((tab) => (
+        <Tab
+          className={styles.loansTab}
+          key={tab.tabValue}
+          value={tab.tabValue}
+          label={<TabLabel {...tab} />}
+          id={`loan-tab-${tab.tabValue}`}
+          aria-controls={`loan-card-${tab.tabValue}`}
+        />
+      ))}
+    </Tabs>
   );
 };
 
