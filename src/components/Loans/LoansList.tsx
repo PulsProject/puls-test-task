@@ -29,7 +29,7 @@ const LoansList: React.FC<LoansListProps> = ({ loanRequests, ...other }) => {
         </Card>
       </Hidden>
       <Box {...other}>
-        {loanRequests?.map((loan: LoanRequest) => (
+        {loanRequests.map((loan: LoanRequest) => (
           <Card className={styles.loanCard} key={loan.id} data-testid="loan-card">
             <Grid container alignItems={mobile ? 'flex-start' : 'center'}>
               <Grid item xs={7} sm={2}>
