@@ -1,7 +1,10 @@
-import { LoanRequestsByTabs, TabDetails } from '../loansUtils';
+import { LoanRequestsByTabs, LoanTab, TabDetails } from '../loansUtils';
+// eslint-disable-next-line import/extensions
+import data from '../../../data/loans.json';
+import { LoanRequest, LoanStatus } from '../../../data/Interfaces';
 
 export const mockLoansByTabs = {
-  'waiting approval': [
+  [LoanTab.WAITING]: [
     {
       id: 34,
       externalId: 'G81FV',
@@ -61,7 +64,7 @@ export const mockLoansByTabs = {
       },
     },
   ],
-  'pending requests': [
+  [LoanTab.PENDING]: [
     {
       id: 23,
       externalId: 'R9ZEQ',
@@ -179,7 +182,7 @@ export const mockLoansByTabs = {
       },
     },
   ],
-  'active loans': [
+  [LoanTab.ACTIVE]: [
     {
       id: 1,
       externalId: 'R9ZE2',
@@ -239,7 +242,7 @@ export const mockLoansByTabs = {
       },
     },
   ],
-  'closed loans': [
+  [LoanTab.CLOSED]: [
     {
       id: 33,
       externalId: '7G4PP',
@@ -299,7 +302,7 @@ export const mockLoansByTabs = {
       },
     },
   ],
-  'rejected loans': [
+  [LoanTab.REJECTED]: [
     {
       id: 2,
       externalId: 'R9ZE1',
@@ -362,9 +365,26 @@ export const mockLoansByTabs = {
 } as unknown as LoanRequestsByTabs;
 
 export const mockTabDetails = [
-  { tabValue: 'waiting approval', tabLabel: 1 },
-  { tabValue: 'pending requests', tabLabel: 2 },
-  { tabValue: 'active loans', tabLabel: 1 },
-  { tabValue: 'closed loans', tabLabel: 1 },
-  { tabValue: 'rejected loans', tabLabel: 1 },
+  { tabValue: LoanTab.WAITING, tabLabel: 1 },
+  { tabValue: LoanTab.PENDING, tabLabel: 2 },
+  { tabValue: LoanTab.ACTIVE, tabLabel: 1 },
+  { tabValue: LoanTab.CLOSED, tabLabel: 1 },
+  { tabValue: LoanTab.REJECTED, tabLabel: 1 },
 ] as unknown as TabDetails[];
+
+export const loanRequests = (data as unknown as { loanRequests: LoanRequest[] }).loanRequests;
+export const loanRequestsWithoutActiveStatus = loanRequests.filter(
+  (loanRequest) => loanRequest.status !== LoanStatus.ACTIVE,
+);
+export const mockLoansByTabsWithEmptyActiveTabList = { ...mockLoansByTabs };
+mockLoansByTabsWithEmptyActiveTabList[LoanTab.ACTIVE] = [];
+
+export const mockTabDetailsWithoutActiveTab = mockTabDetails.filter(
+  (tabDetail) => tabDetail.tabValue !== LoanTab.ACTIVE,
+);
+export const mockLoansByTabsEmpty = { ...mockLoansByTabs };
+mockLoansByTabsEmpty[LoanTab.WAITING] = [];
+mockLoansByTabsEmpty[LoanTab.PENDING] = [];
+mockLoansByTabsEmpty[LoanTab.ACTIVE] = [];
+mockLoansByTabsEmpty[LoanTab.CLOSED] = [];
+mockLoansByTabsEmpty[LoanTab.REJECTED] = [];

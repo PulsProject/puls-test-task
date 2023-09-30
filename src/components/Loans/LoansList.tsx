@@ -29,7 +29,11 @@ const LoansList: React.FC<LoansListProps> = ({ loanRequests, tabValue }) => {
         </Card>
       </Hidden>
       {loanRequests[tabValue]?.map((loan: LoanRequest) => (
-        <Card className={styles.loanCard} key={loan.id} role="tabpanel" id={`simple-tabpanel-${tabValue}`} aria-labelledby={`simple-tab-${tabValue}`}>
+        <Card className={styles.loanCard}
+          key={loan.id} role="tabcard"
+          id={`loan-tabcard-${tabValue}`}
+          data-testid={`loan-tabcard-${tabValue}`}
+          aria-labelledby={`loan-tab-${tabValue}`}>
           <Grid container alignItems={mobile ? 'flex-start' : 'center'}>
             <Grid item xs={7} sm={2}>
               <span className={styles.name}>
