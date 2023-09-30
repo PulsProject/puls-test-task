@@ -36,7 +36,7 @@ const LoansTabs: React.FC<LoansTabsProps> = ({ tabs, activeTabValue, setTabValue
             value={tab.tabValue}
             label={<TabLabel {...tab} />}
             id={`loan-tab-${tab.tabValue}`}
-            aria-controls={`loan-tabcard-${tab.tabValue}`}
+            aria-controls={`loan-card-${tab.tabValue}`}
           />
         ))}
       </Tabs>
