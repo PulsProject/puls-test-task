@@ -1,4 +1,4 @@
-import { mapLoanRequestsToTabDetails, splitLoanRequestsByTabs } from '../loansUtils';
+import { mapLoanRequestsToTabDetails, splitLoanRequestsByTabs } from '../loansMappers';
 import {
   loanRequests,
   mockLoansByTabs,

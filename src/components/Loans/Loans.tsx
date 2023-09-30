@@ -2,12 +2,8 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import LoansTabs from '../Loans/LoansTabs';
 import LoansList from '../Loans/LoansList';
-import {
-  splitLoanRequestsByTabs,
-  mapLoanRequestsToTabDetails,
-  LoanRequestsByTabs,
-  TabDetails,
-} from './loansUtils';
+import { splitLoanRequestsByTabs, mapLoanRequestsToTabDetails } from './loansMappers';
+import { LoanRequestsByTabs, TabDetails } from './Interfaces';
 import { LoanRequest } from '../../data/Interfaces';
 // eslint-disable-next-line import/extensions
 import data from '../../data/loans.json';
@@ -30,7 +26,12 @@ const Loans: React.FC = () => {
       ) : (
         <Box>
           <LoansTabs tabs={tabDetailsList} activeTabValue={tabValue} setTabValue={setTabValue} />
-          <LoansList loanRequests={loanRequestsByTabs} tabValue={tabValue} />
+          <LoansList
+            loanRequests={loanRequestsByTabs[tabValue]}
+            role="tabpanel"
+            id={`loans-list-${tabValue}`}
+            aria-labelledby={`loan-tab-${tabValue}`}
+          />
         </Box>
       )}
     </Box>

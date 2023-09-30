@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import { TabDetails } from './loansUtils';
+import { TabDetails } from './Interfaces';
 
 const TabLabel: React.FC<TabDetails> = ({ tabValue, tabLabel }) => (
   <Box sx={{ textTransform: 'capitalize' }}>

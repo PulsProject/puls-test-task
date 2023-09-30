@@ -1,4 +1,4 @@
-import { LoanRequestsByTabs, LoanTab, TabDetails } from '../loansUtils';
+import { LoanRequestsByTabs, LoanTab, TabDetails } from '../Interfaces';
 // eslint-disable-next-line import/extensions
 import data from '../../../data/loans.json';
 import { LoanRequest, LoanStatus } from '../../../data/Interfaces';

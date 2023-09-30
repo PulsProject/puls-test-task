@@ -1,30 +1,5 @@
 import { LoanRequest, LoanStatus } from '../../data/Interfaces';
-
-export enum LoanTab {
-  WAITING = 'waiting_approval',
-  PENDING = 'pendin_requests',
-  ACTIVE = 'active_loans',
-  CLOSED = 'closed_loans',
-  REJECTED = 'rejected_loans',
-}
-
-export type TabType =
-  | LoanTab.WAITING
-  | LoanTab.PENDING
-  | LoanTab.ACTIVE
-  | LoanTab.CLOSED
-  | LoanTab.REJECTED;
-
-/** LoanRequestsByTabs contains filtered loan requests for each tab */
-export type LoanRequestsByTabs = {
-  [key in TabType]: LoanRequest[];
-};
-
-/** TabDetails is used to pass the tab value and label to the LoansTabs component */
-export interface TabDetails {
-  tabValue: TabType;
-  tabLabel: number;
-}
+import { LoanRequestsByTabs, LoanTab, TabType, TabDetails } from './Interfaces';
 
 export const splitLoanRequestsByTabs = (loans: LoanRequest[]): LoanRequestsByTabs =>
   loans.reduce(

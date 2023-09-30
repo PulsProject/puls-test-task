@@ -3,7 +3,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import TabLabel from './TabLabel';
 import useStyles from './LoansTabsStyles';
-import { TabType, TabDetails } from './loansUtils';
+import { TabType, TabDetails } from './Interfaces';
 
 interface LoansTabsProps {
   tabs: TabDetails[];
@@ -34,7 +34,7 @@ const LoansTabs: React.FC<LoansTabsProps> = ({ tabs, activeTabValue, setTabValue
           value={tab.tabValue}
           label={<TabLabel {...tab} />}
           id={`loan-tab-${tab.tabValue}`}
-          aria-controls={`loan-card-${tab.tabValue}`}
+          aria-controls={`loans-list-${tab.tabValue}`}
         />
       ))}
     </Tabs>
