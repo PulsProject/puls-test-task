@@ -20,6 +20,7 @@ const LoansTabs: React.FC<LoansTabsProps> = ({ tabs, activeTabValue, setTabValue
 
   return (
     <Tabs
+      className={styles.tabs}
       value={activeTabValue}
       onChange={handleChange}
       variant="scrollable"
