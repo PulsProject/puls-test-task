@@ -15,9 +15,6 @@ const LoansList: React.FC<LoansListProps> = ({ loanRequests, ...other }) => {
   const mobile = useMediaQuery(theme.breakpoints.down('xs'));
   const styles = useStyles();
 
-  // eslint-disable-next-line no-console
-  console.log(loanRequests);
-
   return (
     <>
       <Hidden smDown>
