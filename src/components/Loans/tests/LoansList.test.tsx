@@ -6,16 +6,12 @@ import { mockLoansByTabs, mockLoansByTabsWithEmptyActiveTabList } from './mockDa
 
 describe('LoansList component', () => {
   it('should display one card in WAITING tab', () => {
-    const renderer = renderWithTheme(
-      <LoansList loanRequests={mockLoansByTabs[LoanTab.WAITING]} />,
-    );
+    const renderer = renderWithTheme(<LoansList loanRequests={mockLoansByTabs[LoanTab.WAITING]} />);
     expect(renderer.getAllByTestId('loan-card')).toHaveLength(1);
   });
 
   it('should display two cards in PENDING tab', () => {
-    const renderer = renderWithTheme(
-      <LoansList loanRequests={mockLoansByTabs[LoanTab.PENDING]} />,
-    );
+    const renderer = renderWithTheme(<LoansList loanRequests={mockLoansByTabs[LoanTab.PENDING]} />);
     const loanCards = renderer.getAllByTestId('loan-card');
     expect(loanCards).toHaveLength(2);
     expect(loanCards[0]).toHaveTextContent('R9ZEQCromwell Marketing50.000,00 €52.500,00€ / month');
@@ -23,23 +19,17 @@ describe('LoansList component', () => {
   });
 
   it('should display one card in ACTIVE tab', () => {
-    const renderer = renderWithTheme(
-      <LoansList loanRequests={mockLoansByTabs[LoanTab.ACTIVE]} />,
-    );
+    const renderer = renderWithTheme(<LoansList loanRequests={mockLoansByTabs[LoanTab.ACTIVE]} />);
     expect(renderer.getAllByTestId('loan-card')).toHaveLength(1);
   });
 
   it('should display one card in CLOSED tab', () => {
-    const renderer = renderWithTheme(
-      <LoansList loanRequests={mockLoansByTabs[LoanTab.CLOSED]} />,
-    );
+    const renderer = renderWithTheme(<LoansList loanRequests={mockLoansByTabs[LoanTab.CLOSED]} />);
     expect(renderer.getAllByTestId('loan-card')).toHaveLength(1);
   });
 
   it('should display one card in REJECTED tab', () => {
-    const renderer = renderWithTheme(
-      <LoansList loanRequests={mockLoansByTabs[LoanTab.REJECTED]} />,
-    );
+    const renderer = renderWithTheme(<LoansList loanRequests={mockLoansByTabs[LoanTab.REJECTED]} />);
     expect(renderer.getAllByTestId('loan-card')).toHaveLength(1);
   });
 

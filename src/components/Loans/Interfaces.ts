@@ -8,15 +8,10 @@ export enum LoanTab {
   REJECTED = 'rejected_loans',
 }
 
-export type TabType =
-  | LoanTab.WAITING
-  | LoanTab.PENDING
-  | LoanTab.ACTIVE
-  | LoanTab.CLOSED
-  | LoanTab.REJECTED;
+export type TabType = LoanTab.WAITING | LoanTab.PENDING | LoanTab.ACTIVE | LoanTab.CLOSED | LoanTab.REJECTED;
 
-/** LoanRequestsByTabs contains filtered loan requests for each tab */
-export type LoanRequestsByTabs = {
+/** LoansByTabs contains filtered loan requests for each tab */
+export type LoansByTabs = {
   [key in TabType]: LoanRequest[];
 };
 

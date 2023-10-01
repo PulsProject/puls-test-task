@@ -1,4 +1,4 @@
-import { LoanRequestsByTabs, LoanTab, TabDetails } from '../Interfaces';
+import { LoansByTabs, LoanTab, TabDetails } from '../Interfaces';
 // eslint-disable-next-line import/extensions
 import data from '../../../data/loans.json';
 import { LoanRequest, LoanStatus } from '../../../data/Interfaces';
@@ -362,7 +362,7 @@ export const mockLoansByTabs = {
       },
     },
   ],
-} as unknown as LoanRequestsByTabs;
+} as unknown as LoansByTabs;
 
 export const mockTabDetails = [
   { tabValue: LoanTab.WAITING, tabLabel: 1 },

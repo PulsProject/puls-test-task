@@ -1,9 +1,9 @@
 import { LoanRequest, LoanStatus } from '../../data/Interfaces';
-import { LoanRequestsByTabs, LoanTab, TabType, TabDetails } from './Interfaces';
+import { LoansByTabs, LoanTab, TabType, TabDetails } from './Interfaces';
 
-export const splitLoanRequestsByTabs = (loans: LoanRequest[]): LoanRequestsByTabs =>
+export const splitLoansByTabs = (loans: LoanRequest[]): LoansByTabs =>
   loans.reduce(
-    (loansByTabs: LoanRequestsByTabs, loan: LoanRequest) => {
+    (loansByTabs: LoansByTabs, loan: LoanRequest) => {
       let tab!: TabType;
 
       switch (loan.status) {
@@ -39,11 +39,11 @@ export const splitLoanRequestsByTabs = (loans: LoanRequest[]): LoanRequestsByTab
     },
   );
 
-/** This function is used to map the loan requests to the tab details and filter out the tabs with no loan requests */
-export const mapLoanRequestsToTabDetails = (loanRequestsByTabs: LoanRequestsByTabs): TabDetails[] =>
-  Object.keys(loanRequestsByTabs)
+/** This function is used to map the LoansByTabs to the tabDetails and filter out the tabs with no loan requests */
+export const mapLoansByTabsToTabDetails = (loansByTabs: LoansByTabs): TabDetails[] =>
+  Object.keys(loansByTabs)
     .map((key) => ({
       tabValue: key as TabType,
-      tabLabel: loanRequestsByTabs[key as TabType].length,
+      tabLabel: loansByTabs[key as TabType].length,
     }))
-    .filter((details) => details.tabLabel > 0);
+    .filter((details) => details.tabLabel);

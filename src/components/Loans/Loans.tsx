@@ -2,32 +2,30 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import LoansTabs from '../Loans/LoansTabs';
 import LoansList from '../Loans/LoansList';
-import { splitLoanRequestsByTabs, mapLoanRequestsToTabDetails } from './loansMappers';
-import { LoanRequestsByTabs, TabDetails } from './Interfaces';
+import { splitLoansByTabs, mapLoansByTabsToTabDetails } from './loanMappers';
+import { LoansByTabs, TabDetails } from './Interfaces';
 import { LoanRequest } from '../../data/Interfaces';
 // eslint-disable-next-line import/extensions
 import data from '../../data/loans.json';
 
 const Loans: React.FC = () => {
   const { loanRequests } = data as unknown as { loanRequests: LoanRequest[] };
-  const loanRequestsByTabs: LoanRequestsByTabs = React.useMemo(
-    () => splitLoanRequestsByTabs(loanRequests),
-    [loanRequests],
-  );
-  const tabDetailsList: TabDetails[] = mapLoanRequestsToTabDetails(loanRequestsByTabs);
+  const loansByTabs: LoansByTabs = React.useMemo(() => splitLoansByTabs(loanRequests), [loanRequests]);
+  const tabDetailsList: TabDetails[] = mapLoansByTabsToTabDetails(loansByTabs);
   const [tabValue, setTabValue] = React.useState(tabDetailsList[0]?.tabValue);
+  const filteredLoans = loansByTabs[tabValue];
 
   return (
-    <Box sx={{ maxWidth: '100%', marginLeft: 'auto', marginRight: 'auto' }}>
+    <Box sx={{ width: '800px', maxWidth: '100%', marginLeft: 'auto', marginRight: 'auto' }}>
       <Typography variant="h2" sx={{ marginBottom: 8 }}>Financing</Typography>
 
       {!loanRequests.length ? (
-        <Box>We currently do not have any loan requests on record</Box>
+        <Box>Currently, there are no loan requests to display.</Box>
       ) : (
         <Box>
           <LoansTabs tabs={tabDetailsList} activeTabValue={tabValue} setTabValue={setTabValue} />
           <LoansList
-            loanRequests={loanRequestsByTabs[tabValue]}
+            loanRequests={filteredLoans}
             role="tabpanel"
             id={`loans-list-${tabValue}`}
             aria-labelledby={`loan-tab-${tabValue}`}
