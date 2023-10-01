@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import LoansTabs from '../Loans/LoansTabs';
 import LoansList from '../Loans/LoansList';
-import { splitLoansByTabs, mapLoansByTabsToTabDetails } from './loanMappers';
+import { splitLoansByTabs, mapLoansToTabDetails } from './loanMappers';
 import { LoansByTabs, TabDetails } from './Interfaces';
 import { LoanRequest } from '../../data/Interfaces';
 // eslint-disable-next-line import/extensions
@@ -11,7 +11,7 @@ import data from '../../data/loans.json';
 const Loans: React.FC = () => {
   const { loanRequests } = data as unknown as { loanRequests: LoanRequest[] };
   const loansByTabs: LoansByTabs = React.useMemo(() => splitLoansByTabs(loanRequests), [loanRequests]);
-  const tabDetailsList: TabDetails[] = mapLoansByTabsToTabDetails(loansByTabs);
+  const tabDetailsList: TabDetails[] = mapLoansToTabDetails(loansByTabs);
   const [tabValue, setTabValue] = React.useState(tabDetailsList[0]?.tabValue);
   const filteredLoans = loansByTabs[tabValue];
 

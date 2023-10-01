@@ -40,7 +40,7 @@ export const splitLoansByTabs = (loans: LoanRequest[]): LoansByTabs =>
   );
 
 /** This function is used to map the LoansByTabs to the tabDetails and filter out the tabs with no loan requests */
-export const mapLoansByTabsToTabDetails = (loansByTabs: LoansByTabs): TabDetails[] =>
+export const mapLoansToTabDetails = (loansByTabs: LoansByTabs): TabDetails[] =>
   Object.keys(loansByTabs)
     .map((key) => ({
       tabValue: key as TabType,

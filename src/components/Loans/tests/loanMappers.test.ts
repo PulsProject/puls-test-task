@@ -1,4 +1,4 @@
-import { splitLoansByTabs, mapLoansByTabsToTabDetails } from '../loanMappers';
+import { splitLoansByTabs, mapLoansToTabDetails } from '../loanMappers';
 import {
   loanRequests,
   mockLoansByTabs,
@@ -23,16 +23,16 @@ describe('splitLoansByTabs function', () => {
   });
 });
 
-describe('mapLoansByTabsToTabDetails function', () => {
+describe('mapLoansToTabDetails function', () => {
   it('should return filtered out tab details', () => {
-    expect(mapLoansByTabsToTabDetails(mockLoansByTabs)).toEqual(mockTabDetails);
+    expect(mapLoansToTabDetails(mockLoansByTabs)).toEqual(mockTabDetails);
   });
 
   it('should return filtered out tab details without ACTIVE loan tab', () => {
-    expect(mapLoansByTabsToTabDetails(mockLoansByTabsWithEmptyActiveTabList)).toEqual(mockTabDetailsWithoutActiveTab);
+    expect(mapLoansToTabDetails(mockLoansByTabsWithEmptyActiveTabList)).toEqual(mockTabDetailsWithoutActiveTab);
   });
 
   it('should return empty list if no loans received', () => {
-    expect(mapLoansByTabsToTabDetails(mockLoansByTabsEmpty)).toEqual([]);
+    expect(mapLoansToTabDetails(mockLoansByTabsEmpty)).toEqual([]);
   });
 });
